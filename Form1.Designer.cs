@@ -332,11 +332,12 @@
             // 
             // pictureBox1
             // 
+            pictureBox1.Dock = DockStyle.Fill;
             pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(30, 16);
+            pictureBox1.Location = new Point(0, 0);
             pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(275, 167);
+            pictureBox1.Size = new Size(334, 191);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
@@ -378,7 +379,7 @@
             // 
             // texto_info
             // 
-            texto_info.BackColor = Color.FromArgb(217, 235, 252);
+            texto_info.BackColor = Color.FromArgb(242, 252, 255);
             texto_info.BorderStyle = BorderStyle.None;
             texto_info.Dock = DockStyle.Fill;
             texto_info.Location = new Point(355, 0);
