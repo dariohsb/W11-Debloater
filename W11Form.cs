@@ -8,6 +8,12 @@ namespace W11_Debloater
         public W11Form()
         {
             InitializeComponent();
+
+            if (!Directory.Exists("Mods"))
+            {
+                MessageBox.Show("La carpeta 'Mods' no existe en el directorio actual. Te recomiendo descargarlo de nuevo en Github", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                this.Close();
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -202,7 +208,14 @@ namespace W11_Debloater
                 texto_info.AppendText(Environment.NewLine);
                 texto_info.AppendText("---------------------------------------------");
             }
-            ejecutarScripts(scripts);
+            if (scripts.Count > 0)
+            {
+                ejecutarScripts(scripts);
+            }
+            else
+            {
+                texto_info.Text = "Debes marcar al menos una casilla";
+            }
         }
         private void ejecutarScripts(List<string> scripts)
         {

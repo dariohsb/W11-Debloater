@@ -75,7 +75,7 @@
             panelLateral.Dock = DockStyle.Left;
             panelLateral.Location = new Point(0, 0);
             panelLateral.Name = "panelLateral";
-            panelLateral.Size = new Size(355, 659);
+            panelLateral.Size = new Size(355, 754);
             panelLateral.TabIndex = 0;
             // 
             // panel_privacidad
@@ -424,21 +424,21 @@
             // 
             texto_info.BackColor = Color.FromArgb(242, 252, 255);
             texto_info.BorderStyle = BorderStyle.None;
-            texto_info.Dock = DockStyle.Fill;
+            texto_info.Dock = DockStyle.Top;
             texto_info.Location = new Point(355, 0);
             texto_info.Margin = new Padding(3, 4, 3, 4);
             texto_info.Multiline = true;
             texto_info.Name = "texto_info";
             texto_info.ReadOnly = true;
             texto_info.ScrollBars = ScrollBars.Vertical;
-            texto_info.Size = new Size(673, 659);
+            texto_info.Size = new Size(673, 650);
             texto_info.TabIndex = 2;
             texto_info.TextChanged += texto_info_TextChanged;
             // 
             // enlace_github
             // 
             enlace_github.AutoSize = true;
-            enlace_github.Location = new Point(871, 536);
+            enlace_github.Location = new Point(871, 623);
             enlace_github.Name = "enlace_github";
             enlace_github.Size = new Size(135, 20);
             enlace_github.TabIndex = 3;
@@ -455,7 +455,7 @@
             btn_optimizar.FlatStyle = FlatStyle.Flat;
             btn_optimizar.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             btn_optimizar.ForeColor = SystemColors.Window;
-            btn_optimizar.Location = new Point(355, 559);
+            btn_optimizar.Location = new Point(355, 654);
             btn_optimizar.Name = "btn_optimizar";
             btn_optimizar.Size = new Size(673, 100);
             btn_optimizar.TabIndex = 4;
@@ -463,17 +463,19 @@
             btn_optimizar.UseVisualStyleBackColor = false;
             btn_optimizar.Click += btn_optimizar_Click;
             // 
-            // Form1
+            // W11Form
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1028, 659);
+            ClientSize = new Size(1028, 754);
             Controls.Add(btn_optimizar);
             Controls.Add(enlace_github);
             Controls.Add(texto_info);
             Controls.Add(panelLateral);
-            MinimumSize = new Size(1046, 706);
-            Name = "Form1";
+            FormBorderStyle = FormBorderStyle.Fixed3D;
+            MaximizeBox = false;
+            MinimumSize = new Size(1046, 801);
+            Name = "W11Form";
             Text = "W11-Debloater";
             panelLateral.ResumeLayout(false);
             panel_privacidad.ResumeLayout(false);
