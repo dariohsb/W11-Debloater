@@ -1,5 +1,6 @@
 using System.Diagnostics;
 using System.Text;
+using Newtonsoft.Json;
 
 namespace W11_Debloater
 {
@@ -30,7 +31,28 @@ namespace W11_Debloater
         {
 
         }
-
+        private void cb_master_innecesarias_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (Control control in panel_innecesarias.Controls)
+            {
+                if (control is CheckBox)
+                {
+                    CheckBox checkbox = (CheckBox)control;
+                    checkbox.Checked = cb_master_innecesarias.Checked;
+                }
+            }
+        }
+        private void cb_master_privacidad_CheckedChanged(object sender, EventArgs e)
+        {
+            foreach (Control control in panel_privacidad.Controls)
+            {
+                if (control is CheckBox)
+                {
+                    CheckBox checkbox = (CheckBox)control;
+                    checkbox.Checked = cb_master_privacidad.Checked;
+                }
+            }
+        }
         private void btn_optimizar_Click(object sender, EventArgs e)
         {
             StringBuilder comandos = new StringBuilder();
@@ -282,6 +304,33 @@ namespace W11_Debloater
         {
             string url = "https://github.com/cipotemanx/W11-Debloater";
             Process.Start(new ProcessStartInfo() { FileName = url, UseShellExecute = true });
+        }
+
+        private async void enlace_actualizacion_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            string currentVersion = "0.2";
+            string owner = "cipotemanx";
+            string repo = "W11-Debloater";
+
+            string url = $"https://api.github.com/repos/{owner}/{repo}/releases/latest";
+
+            HttpClient client = new HttpClient();
+            client.DefaultRequestHeaders.Add("User-Agent", "request"); // Necesario para la API de GitHub
+
+            var response = await client.GetAsync(url);
+            var content = await response.Content.ReadAsStringAsync();
+
+            dynamic latestRelease = JsonConvert.DeserializeObject(content);
+            string latestVersion = latestRelease.tag_name;
+
+            if (latestVersion != currentVersion)
+            {
+                MessageBox.Show("Hay una nueva versión disponible!");
+            }
+            else
+            {
+                MessageBox.Show("Estás utilizando la versión más reciente");
+            }
         }
     }
 }

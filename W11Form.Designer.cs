@@ -30,13 +30,19 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(W11Form));
             panelLateral = new Panel();
+            panel_extra = new Panel();
+            enlace_actualizacion = new LinkLabel();
+            enlace_github = new LinkLabel();
             panel_privacidad = new Panel();
             cb_2plano = new CheckBox();
             cb_consejos = new CheckBox();
             cb_sugerido = new CheckBox();
             cb_diagnostico = new CheckBox();
             cb_ubicacion = new CheckBox();
+            panel_dock_privacidad = new Panel();
+            cb_master_privacidad = new CheckBox();
             btn_privacidad = new Button();
+            cb_master_innecesarias = new CheckBox();
             panel_innecesarias = new Panel();
             cb_people = new CheckBox();
             cb_notas = new CheckBox();
@@ -54,10 +60,11 @@
             panelLogo = new Panel();
             pictureBox1 = new PictureBox();
             texto_info = new TextBox();
-            enlace_github = new LinkLabel();
             btn_optimizar = new Button();
             panelLateral.SuspendLayout();
+            panel_extra.SuspendLayout();
             panel_privacidad.SuspendLayout();
+            panel_dock_privacidad.SuspendLayout();
             panel_innecesarias.SuspendLayout();
             panelLogo.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -67,16 +74,52 @@
             // 
             panelLateral.AutoScroll = true;
             panelLateral.BackColor = Color.FromArgb(51, 68, 89);
+            panelLateral.Controls.Add(panel_extra);
             panelLateral.Controls.Add(panel_privacidad);
-            panelLateral.Controls.Add(btn_privacidad);
+            panelLateral.Controls.Add(panel_dock_privacidad);
+            panelLateral.Controls.Add(cb_master_innecesarias);
             panelLateral.Controls.Add(panel_innecesarias);
             panelLateral.Controls.Add(btn_innecesarias);
             panelLateral.Controls.Add(panelLogo);
             panelLateral.Dock = DockStyle.Left;
             panelLateral.Location = new Point(0, 0);
             panelLateral.Name = "panelLateral";
-            panelLateral.Size = new Size(355, 754);
+            panelLateral.Size = new Size(355, 833);
             panelLateral.TabIndex = 0;
+            // 
+            // panel_extra
+            // 
+            panel_extra.Controls.Add(enlace_actualizacion);
+            panel_extra.Controls.Add(enlace_github);
+            panel_extra.Dock = DockStyle.Bottom;
+            panel_extra.Location = new Point(0, 928);
+            panel_extra.Name = "panel_extra";
+            panel_extra.Size = new Size(334, 62);
+            panel_extra.TabIndex = 14;
+            // 
+            // enlace_actualizacion
+            // 
+            enlace_actualizacion.AutoSize = true;
+            enlace_actualizacion.LinkColor = Color.FromArgb(192, 255, 255);
+            enlace_actualizacion.Location = new Point(3, 31);
+            enlace_actualizacion.Name = "enlace_actualizacion";
+            enlace_actualizacion.Size = new Size(176, 20);
+            enlace_actualizacion.TabIndex = 4;
+            enlace_actualizacion.TabStop = true;
+            enlace_actualizacion.Text = "Comprobar actualización";
+            enlace_actualizacion.LinkClicked += enlace_actualizacion_LinkClicked;
+            // 
+            // enlace_github
+            // 
+            enlace_github.AutoSize = true;
+            enlace_github.LinkColor = Color.FromArgb(192, 255, 255);
+            enlace_github.Location = new Point(3, 4);
+            enlace_github.Name = "enlace_github";
+            enlace_github.Size = new Size(135, 20);
+            enlace_github.TabIndex = 3;
+            enlace_github.TabStop = true;
+            enlace_github.Text = "Sígueme en Github";
+            enlace_github.LinkClicked += enlace_github_LinkClicked;
             // 
             // panel_privacidad
             // 
@@ -91,7 +134,7 @@
             panel_privacidad.Margin = new Padding(3, 4, 3, 4);
             panel_privacidad.Name = "panel_privacidad";
             panel_privacidad.Size = new Size(334, 174);
-            panel_privacidad.TabIndex = 9;
+            panel_privacidad.TabIndex = 13;
             panel_privacidad.Visible = false;
             // 
             // cb_2plano
@@ -169,17 +212,55 @@
             cb_ubicacion.TextAlign = ContentAlignment.MiddleCenter;
             cb_ubicacion.UseVisualStyleBackColor = true;
             // 
+            // panel_dock_privacidad
+            // 
+            panel_dock_privacidad.Controls.Add(cb_master_privacidad);
+            panel_dock_privacidad.Controls.Add(btn_privacidad);
+            panel_dock_privacidad.Dock = DockStyle.Top;
+            panel_dock_privacidad.Location = new Point(0, 701);
+            panel_dock_privacidad.Name = "panel_dock_privacidad";
+            panel_dock_privacidad.Size = new Size(334, 53);
+            panel_dock_privacidad.TabIndex = 11;
+            // 
+            // cb_master_privacidad
+            // 
+            cb_master_privacidad.AutoSize = true;
+            cb_master_privacidad.BackColor = Color.White;
+            cb_master_privacidad.Checked = true;
+            cb_master_privacidad.CheckState = CheckState.Checked;
+            cb_master_privacidad.Location = new Point(61, 19);
+            cb_master_privacidad.Name = "cb_master_privacidad";
+            cb_master_privacidad.Size = new Size(18, 17);
+            cb_master_privacidad.TabIndex = 14;
+            cb_master_privacidad.TextAlign = ContentAlignment.MiddleCenter;
+            cb_master_privacidad.UseVisualStyleBackColor = false;
+            cb_master_privacidad.CheckedChanged += cb_master_privacidad_CheckedChanged;
+            // 
             // btn_privacidad
             // 
             btn_privacidad.Dock = DockStyle.Top;
-            btn_privacidad.Location = new Point(0, 701);
+            btn_privacidad.Location = new Point(0, 0);
             btn_privacidad.Margin = new Padding(3, 4, 3, 4);
             btn_privacidad.Name = "btn_privacidad";
             btn_privacidad.Size = new Size(334, 53);
-            btn_privacidad.TabIndex = 8;
+            btn_privacidad.TabIndex = 13;
             btn_privacidad.Text = "Problemas de Privacidad";
             btn_privacidad.UseVisualStyleBackColor = true;
             btn_privacidad.Click += btn_privacidad_Click;
+            // 
+            // cb_master_innecesarias
+            // 
+            cb_master_innecesarias.AutoSize = true;
+            cb_master_innecesarias.BackColor = Color.White;
+            cb_master_innecesarias.Checked = true;
+            cb_master_innecesarias.CheckState = CheckState.Checked;
+            cb_master_innecesarias.Location = new Point(61, 210);
+            cb_master_innecesarias.Name = "cb_master_innecesarias";
+            cb_master_innecesarias.Size = new Size(18, 17);
+            cb_master_innecesarias.TabIndex = 10;
+            cb_master_innecesarias.TextAlign = ContentAlignment.MiddleCenter;
+            cb_master_innecesarias.UseVisualStyleBackColor = false;
+            cb_master_innecesarias.CheckedChanged += cb_master_innecesarias_CheckedChanged;
             // 
             // panel_innecesarias
             // 
@@ -353,7 +434,6 @@
             cb_OneDrive.Text = "Desinstalar OneDrive";
             cb_OneDrive.TextAlign = ContentAlignment.MiddleCenter;
             cb_OneDrive.UseVisualStyleBackColor = true;
-            cb_OneDrive.CheckedChanged += checkBox1_CheckedChanged;
             // 
             // cb_Eltiempo
             // 
@@ -435,17 +515,6 @@
             texto_info.TabIndex = 2;
             texto_info.TextChanged += texto_info_TextChanged;
             // 
-            // enlace_github
-            // 
-            enlace_github.AutoSize = true;
-            enlace_github.Location = new Point(871, 623);
-            enlace_github.Name = "enlace_github";
-            enlace_github.Size = new Size(135, 20);
-            enlace_github.TabIndex = 3;
-            enlace_github.TabStop = true;
-            enlace_github.Text = "Sígueme en Github";
-            enlace_github.LinkClicked += enlace_github_LinkClicked;
-            // 
             // btn_optimizar
             // 
             btn_optimizar.BackColor = Color.FromArgb(28, 38, 48);
@@ -455,7 +524,7 @@
             btn_optimizar.FlatStyle = FlatStyle.Flat;
             btn_optimizar.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
             btn_optimizar.ForeColor = SystemColors.Window;
-            btn_optimizar.Location = new Point(355, 654);
+            btn_optimizar.Location = new Point(355, 733);
             btn_optimizar.Name = "btn_optimizar";
             btn_optimizar.Size = new Size(673, 100);
             btn_optimizar.TabIndex = 4;
@@ -467,19 +536,23 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1028, 754);
+            ClientSize = new Size(1028, 833);
             Controls.Add(btn_optimizar);
-            Controls.Add(enlace_github);
             Controls.Add(texto_info);
             Controls.Add(panelLateral);
             FormBorderStyle = FormBorderStyle.Fixed3D;
             MaximizeBox = false;
-            MinimumSize = new Size(1046, 801);
+            MinimumSize = new Size(1050, 884);
             Name = "W11Form";
             Text = "W11-Debloater";
             panelLateral.ResumeLayout(false);
+            panelLateral.PerformLayout();
+            panel_extra.ResumeLayout(false);
+            panel_extra.PerformLayout();
             panel_privacidad.ResumeLayout(false);
             panel_privacidad.PerformLayout();
+            panel_dock_privacidad.ResumeLayout(false);
+            panel_dock_privacidad.PerformLayout();
             panel_innecesarias.ResumeLayout(false);
             panel_innecesarias.PerformLayout();
             panelLogo.ResumeLayout(false);
@@ -508,14 +581,19 @@
         private CheckBox cb_solitario;
         private CheckBox cb_notas;
         private CheckBox cb_people;
+        private LinkLabel enlace_github;
+        private Button btn_optimizar;
+        private CheckBox cb_master_innecesarias;
         private Panel panel_privacidad;
+        private CheckBox cb_2plano;
+        private CheckBox cb_consejos;
+        private CheckBox cb_sugerido;
         private CheckBox cb_diagnostico;
         private CheckBox cb_ubicacion;
+        private Panel panel_dock_privacidad;
+        private CheckBox cb_master_privacidad;
         private Button btn_privacidad;
-        private LinkLabel enlace_github;
-        private CheckBox cb_sugerido;
-        private CheckBox cb_consejos;
-        private CheckBox cb_2plano;
-        private Button btn_optimizar;
+        private Panel panel_extra;
+        private LinkLabel enlace_actualizacion;
     }
 }
