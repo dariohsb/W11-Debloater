@@ -27,8 +27,9 @@ Este es un proyecto de debloater para Windows 11, diseñado para ayudarte a desa
 - Realizando solicitudes de extracción (pull requests) para corregir errores, mejorar características o agregar nuevas funcionalidades.
 - Reportando problemas o errores en la sección de "Issues" del repositorio.
 
-## Licencia
+## VirusTotal✅
 
-Este proyecto está licenciado bajo la Licencia MIT. Puedes consultar el archivo [LICENSE](LICENSE) para obtener más información.
+Te invitamos a que escanees nuestro proyecto con tu antivirus para así comprobar que no tiene malware instalado.
+[VirusTotal](https://www.virustotal.com/gui/file/96adc1aa493c05fe3383e5e7ff833dd76188fc15d966c44b22e1f1077d0b0626) (0 detecciones).
 
 ---
