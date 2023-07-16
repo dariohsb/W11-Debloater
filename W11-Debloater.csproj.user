@@ -4,7 +4,7 @@
     <_LastSelectedProfileId>C:\Users\Darío\Desktop\Librerías\C#\W11-Debloater\Properties\PublishProfiles\FolderProfile.pubxml</_LastSelectedProfileId>
   </PropertyGroup>
   <ItemGroup>
-    <Compile Update="Form1.cs">
+    <Compile Update="W11Form.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

@@ -1,0 +1,1 @@
+﻿Get-AppxPackage *BingWeather* | Remove-AppxPackage

@@ -1,0 +1,1 @@
+﻿Get-AppxPackage -AllUsers | where-object {$_.IsFramework -eq $false -and $_.PackageFamilyName -notlike "*microsoft.windows*" -and $_.PackageFamilyName -notlike "*windowscommunicationsapps*" -and $_.PackageFamilyName -notlike "*microsoft.windowsstore*"} | foreach {Remove-AppxPackage -Package $_.PackageFullName}
